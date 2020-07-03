@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 9/21/2017 4:41:36 PM
+// C:\Users\13301127\Desktop\Export dsch2\Export dsch2\example3_orgate.sch
+
+module example3_orgate( in5,in6,out5);
+ input in5,in6;
+ output out5;
+ pmos #(10) pmos(w3,vdd,in6); // 2.0u 0.12u
+ pmos #(24) pmos(out5,w3,in6); // 2.0u 0.12u
+ nmos #(24) nmos(out5,vss,in6); // 1.0u 0.12u
+ nmos #(24) nmos(out5,vss,in6); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in5=~in5;
+#2000 in6=~in6;
+
+// Simulation parameters
+// in5 CLK 10 10
+// in6 CLK 20 20

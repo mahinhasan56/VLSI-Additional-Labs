@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 9/21/2017 4:29:52 PM
+// C:\Users\13301127\Desktop\Export dsch2\Export dsch2\example2_date.sch
+
+module example2_date( in3,in4,out1);
+ input in3,in4;
+ output out1;
+ pmos #(24) pmos(out1,vdd,in3); // 2.0u 0.12u
+ pmos #(24) pmos(out1,vdd,in4); // 2.0u 0.12u
+ nmos #(24) nmos(out1,w4,in4); // 1.0u 0.12u
+ nmos #(10) nmos(w4,vss,in3); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in3=~in3;
+#2000 in4=~in4;
+
+// Simulation parameters
+// in3 CLK 10 10
+// in4 CLK 20 20

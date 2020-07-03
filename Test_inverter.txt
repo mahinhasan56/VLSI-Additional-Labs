@@ -1,0 +1,17 @@
+// DSCH 2.7a
+// 9/21/2017 4:10:32 PM
+// C:\Users\13301127\Desktop\Export dsch2\Export dsch2\Test_inverter.sch
+
+module Test_inverter( in1,out1);
+ input in1;
+ output out1;
+ nmos #(17) nmos(out1,vss,in1); // 1.0u 0.12u
+ pmos #(17) pmos(out1,vdd,in1); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in1=~in1;
+
+// Simulation parameters
+// in1 CLK 10 10
